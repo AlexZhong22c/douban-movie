@@ -1,0 +1,59 @@
+{
+  "name": "douban-movie",
+  "version": "1.0.0",
+  "description": "NodeJs express Mongodb Mongoose bower jquery jade bootstrap",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.14.0",
+    "connect-mongo": "^1.1.0",
+    "connect-multiparty": "^2.0.0",
+    "cookie-parser": "^1.4.0",
+    "del": "^2.1.0",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cache": "^0.4.3",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.5",
+    "http": "0.0.0",
+    "jshint": "^2.9.5",
+    "moment": "^2.10.6",
+    "mongodb": "^2.1.7",
+    "mongoose": "^4.1.7",
+    "morgan": "^1.6.1",
+    "pug": "^2.0.0-rc.4",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "should": "^7.1.0",
+    "underscore": "^1.8.3",
+    "webpack": "^1.12.14"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "NodeJs",
+    "express",
+    "Mongodb",
+    "Mongoose",
+    "bower",
+    "jquery",
+    "jade",
+    "bootstrap",
+    "Sass"
+  ],
+  "author": "az22c",
+  "license": "MIT"
+}
