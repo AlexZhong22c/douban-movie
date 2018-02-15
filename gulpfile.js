@@ -7,7 +7,6 @@ var gulp = require('gulp'),
 
 var path = {
   src: {
-    // eslint: ['public/scripts/js/**/*.js', 'app/**/*.js', '*.js', 'route/**', 'test/**'],
     scripts: 'public/scripts/js/**/*.js',
     sass: 'public/sass/**/*.scss',
     // images: 'public/images/**',
@@ -35,15 +34,6 @@ gulp.task('styles', function () {
     .pipe(plugins.cleanCss())
     .pipe(gulp.dest(path.dest.sass));
 });
-
-// 放弃gulp-eslint，太不方便了，肝死了：
-// gulp.task('eslint', function() {
-//   return gulp.src(path.src.eslint)
-//     .pipe(plugins.eslint({
-//       configFle: './.eslintrc'
-//     }))
-//     // ......
-// });
 
 // js代码压缩
 gulp.task('scripts', function() {
