@@ -9,13 +9,13 @@ var path = {
   src: {
     scripts: 'public/scripts/js/**/*.js',
     sass: 'public/sass/**/*.scss',
-    // images: 'public/images/**',
+    images: 'public/images/**',
     clean: 'public/libs/**'
   },
   dest: {
     scripts: 'public/libs/scripts/js/',
     sass: 'public/libs/css/',
-    // images: 'public/libs/images',
+    images: 'public/libs/images',
   }
 };
 
@@ -48,17 +48,17 @@ gulp.task('scripts', function() {
 })
 
 // 图片压缩
-// gulp.task('images', function() {
-//   return gulp.src(path.src.images)
-//     .pipe(plugins.cache(plugins.imagemin({ progressive: true, interlaced: true })))
-//     .pipe(gulp.dest(path.dest.images));
-// });
+gulp.task('images', function() {
+  return gulp.src(path.src.images)
+    .pipe(plugins.cache(plugins.imagemin({ progressive: true, interlaced: true })))
+    .pipe(gulp.dest(path.dest.images));
+});
 
 // watch
 gulp.task('watch', function () {
   gulp.watch(path.src.sass, ['styles'])
   gulp.watch(path.src.scripts, ['scripts'])
-  // gulp.watch(path.src.images,['images']);
+  gulp.watch(path.src.images,['images']);
 });
 
 // 清除文件
@@ -80,5 +80,5 @@ gulp.task('clean', function (cb) {
 // });
 
 // 默认任务
-gulp.task('init', ['styles', 'scripts'])
+gulp.task('init', ['styles', 'scripts', 'images'])
 gulp.task('default', ['watch'])
