@@ -1,7 +1,7 @@
 {
   "name": "douban-movie",
   "version": "1.0.0",
-  "description": "NodeJs express Mongodb Mongoose bower jquery jade bootstrap",
+  "description": "NodeJs express Mongodb Mongoose bower jquery pug bootstrap",
   "main": "app.js",
   "directories": {
     "test": "test"
@@ -48,7 +48,7 @@
     "Mongoose",
     "bower",
     "jquery",
-    "jade",
+    "pug",
     "bootstrap",
     "Sass"
   ],
