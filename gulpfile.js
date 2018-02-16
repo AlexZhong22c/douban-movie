@@ -80,6 +80,5 @@ gulp.task('clean', function (cb) {
 // });
 
 // 默认任务
-// gulp.task('default',['watch','nodemon']);
 gulp.task('init', ['styles', 'scripts'])
 gulp.task('default', ['watch'])
