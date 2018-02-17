@@ -14,7 +14,7 @@ block content
               img(src="#{movie.poster}" alt="#{movie.title}")
             else
               // 电影海报为自行上传
-              img(src="/upload/movie/#{movie.poster}" alt="#{movie.title}")
+              img(src=`/upload/movie/${movie.poster}` alt=`${movie.title}`)
             .detail-info.dl-horizontal
               dt 又名:
               dd= movie.aka

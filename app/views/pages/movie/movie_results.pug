@@ -16,7 +16,7 @@ block content
                       img(src="#{item.poster}", alt="#{item.title}" style="height: 200px;")
                   else
                     a(href="/movie/#{item._id}")
-                      img(src="/upload/movie/#{item.poster}", alt="#{item.title}" style="height: 200px;")
+                      img(src=`/upload/movie/${item.poster}`, alt=`${item.title}` style="height: 200px;")
                   .caption
                     h5(style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;") #{item.title}
                     p: a.btn.btn-primary(href="/movie/#{item._id}", role="button") 观看预告片
