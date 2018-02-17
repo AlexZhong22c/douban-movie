@@ -76,7 +76,7 @@
       if logo == 'movie'
         - var logoName = '电影'
         a(href="/")
-          img(src="/libs/images/#{logo}/#{logo}Logo.png" alt="#{logo}Logo" style="width:115px;height:27px;")
+          img(src=`/libs/images/${logo}/${logo}Logo.png` alt="#{logo}Logo" style="width:115px;height:27px;")
       else
         - var logoName = '音乐'
         a(href="/musicIndex")
@@ -84,7 +84,7 @@
     .nav-search
       form(method='GET' action='/#{logo}/results')
         .input-group
-          input.form-control(type='text' name='q' placeholder="#{logoName}搜索")
+          input.form-control(type='text' name='q' placeholder=`${logoName}搜索`)
           span.input-group-btn
             button(type='submit').btn.btn-default
               span.glyphicon.glyphicon-search
