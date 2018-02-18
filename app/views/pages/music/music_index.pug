@@ -47,15 +47,15 @@ block content
                     if cat.musics && cat.musics.length > 0
                       each item in cat.musics
                         .thumbnail
-                          a(href="/music/#{item._id}" target="_blank")
+                          a(href=`/music/${item._id}` target="_blank")
                             if item.image.indexOf('http:') > -1
-                              img(src="#{item.image}", alt="#{item.title}")
+                              img(src=`${item.image}`, alt=`${item.title}`)
                             else
-                              img(src="/upload/music/#{item.image}", alt="#{item.title}")
+                              img(src=`/upload/music/${item.image}`, alt=`${item.title}`)
                           .caption
                             p #{item.version}
                             h5
-                              a(href="/music/#{item._id}" target="_blank") #{item.title}
+                              a(href=`/music/${item._id}` target="_blank") #{item.title}
                             p #{item.singer}
                             div #{item.summary}
             .left-advertisement
@@ -96,18 +96,18 @@ block content
                   if cat.name === '豆瓣音乐250'
                     .billboard-hd.class-top
                       h4 豆瓣音乐250
-                      a.more(href="/music/results?cat=#{cat._id}&p=0" target="_blank") 更多
+                      a.more(href=`/music/results?cat=${cat._id}&p=0` target="_blank") 更多
                     .billboard-bd.clearfix
                       if cat.musics && cat.musics.length > 0
                         - var len = Math.min(9,cat.musics.length)
                         - for(var i = 0; i < len; i++)
                           .thumbnail
                             if cat.musics[i]
-                              a(href="/music/#{cat.musics[i]._id}" target="_blank")
+                              a(href=`/music/${cat.musics[i]._id}` target="_blank")
                                 if cat.musics[i].image.indexOf('http:') > -1
-                                  img(src="#{cat.musics[i].image}", alt="#{cat.musics[i].title}")
+                                  img(src=`${cat.musics[i].image}`, alt=`${cat.musics[i].title}`)
                                 else
-                                  img(src="/upload/music/#{cat.musics[i].image}", alt="#{cat.musics[i].title}")
+                                  img(src=`/upload/music/${cat.musics[i].image}`, alt=`${cat.musics[i].title}`)
                                 h5 #{cat.musics[i].title}
               // 豆瓣音乐250下方广告部分节点标签
               .right-advertisement.clearfix

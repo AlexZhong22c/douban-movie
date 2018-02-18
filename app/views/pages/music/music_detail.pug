@@ -10,10 +10,10 @@ block content
           span #{music.title}
           .detail-body.clearfix
             if music.image.indexOf('http:') > -1
-              img.musicImg(src="#{music.image}" alt="#{music.title}")
+              img.musicImg(src=`${music.image}` alt=`${music.title}`)
             else
               // 音乐图片为自行上传
-              img.musicImg(src="/upload/music/#{music.image}" alt="#{music.title}")
+              img.musicImg(src=`/upload/music/${music.image}` alt=`${music.title}`)
             .detail-info.dl-horizontal
               dt 又名
               dd= music.altTitle
@@ -46,9 +46,9 @@ block content
             #comments
               if music
                 form#commentForm(method="POST" action="/admin/music/musicComment")
-                  input(type="hidden" name="comment[music]" value="#{music._id}")
+                  input(type="hidden" name="comment[music]" value=`${music._id}`)
                 if user
-                  input(type="hidden" name="comment[from]" value="#{user._id}")
+                  input(type="hidden" name="comment[from]" value=`${user._id}`)
                 .form-group
                   textarea.form-control(name="comment[content]")
                 if user
@@ -66,9 +66,9 @@ block content
                         h4.media-heading #{item.from.name}
                         p #{item.content}
                         span.createAt #{moment(item.meta.createAt).format('MM-DD HH:mm')} &nbsp;&nbsp;&nbsp;&nbsp;
-                        a.comment(href="#comments" data-cid="#{item._id}" data-tid="#{item.from._id}") 回复
+                        a.comment(href="#comments" data-cid=`${item._id}` data-tid=`${item.from._id}`) 回复
                         if user && item.from.name === user.name
-                          a.comment-del(href="javascript:;" data-cid="#{item._id}") &nbsp;|&nbsp;删除
+                          a.comment-del(href="javascript:;" data-cid=`${item._id}`) &nbsp;|&nbsp;删除
                         if item.reply && item.reply.length > 0
                           each reply in item.reply
                             .media
@@ -81,8 +81,8 @@ block content
                                   | #{reply.to.name}
                                 p #{reply.content}
                                 span.createAt #{moment(reply.meta.createAt).format('MM-DD HH:mm')} &nbsp;&nbsp;&nbsp;&nbsp;
-                                a.comment(href="#comments" data-cid="#{item._id}" data-tid="#{reply.to._id}") 回复
+                                a.comment(href="#comments" data-cid=`${item._id}` data-tid=`${reply.to._id}`) 回复
                                 if user && reply.from.name === user.name
-                                  a.comment-del(href="javascript:;" data-cid="#{item._id}" data-did='#{reply._id}') &nbsp;|&nbsp;删除
+                                  a.comment-del(href="javascript:;" data-cid=`${item._id}` data-did=`${reply._id}`) &nbsp;|&nbsp;删除
                     hr
   script(src="/libs/scripts/js/music/music_detail.min.js")
