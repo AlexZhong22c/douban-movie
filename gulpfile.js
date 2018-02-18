@@ -42,7 +42,7 @@ gulp.task('scripts', function() {
     .pipe(plugins.rename({suffix: '.min'}))
     // 压缩js代码、混淆js变量名:
     .pipe(uglifyjs({
-      mangle: { toplevel: true }
+      // mangle: { toplevel: true }
     }))
     .pipe(gulp.dest(path.dest.scripts))
 })
