@@ -11,7 +11,7 @@ block content
           span.year (#{movie.year})
           .detail-body.clearfix
             if movie.poster.indexOf('http:') > -1
-              img(src="#{movie.poster}" alt="#{movie.title}")
+              img(src=`${movie.poster}` alt=`${movie.title}`)
             else
               // 电影海报为自行上传
               img(src=`/upload/movie/${movie.poster}` alt=`${movie.title}`)
@@ -37,8 +37,8 @@ block content
           h4 #{movie.title}剧情简介&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
           p.intro #{movie.summary}
       .detaile.col-md-6.col-xs-6
-        if movie
-          embed(src="#{movie.flash}" allowFullScreen="true" quality="high" width="100%" height="400" align="middle" allowScriptAcess="always" type="application/x-shockwave-flash")
+        if movie && movie.flash
+          embed(src=`${movie.flash}` allowFullScreen="true" quality="high" width="100%" height="400" align="middle" allowScriptAcess="always" type="application/x-shockwave-flash")/
     .row
       .detaile-content.col-md-6.col-md-offset-1.col-xs-6
         .panel.panel-defatul
@@ -47,9 +47,9 @@ block content
             #comments
               if movie
                 form#commentForm(method="POST" action="/admin/movie/comment")
-                  input(type="hidden" name="comment[movie]" value="#{movie._id}")
+                  input(type="hidden" name="comment[movie]" value=`${movie._id}`)
                 if user
-                  input(type="hidden" name="comment[from]" value="#{user._id}")
+                  input(type="hidden" name="comment[from]" value=`${user._id}`)
                 .form-group
                   textarea.form-control(name="comment[content]")
                 if user
@@ -68,9 +68,9 @@ block content
                         h4.media-heading #{item.from.name}
                         p #{item.content}
                         span.createAt #{moment(item.meta.createAt).format('MM-DD HH:mm')} &nbsp;&nbsp;&nbsp;&nbsp;
-                        a.comment(href="#comments" data-cid="#{item._id}" data-tid="#{item.from._id}") 回复
+                        a.comment(href="#comments" data-cid=`${item._id}` data-tid=`${item.from._id}`) 回复
                         if user && item.from.name === user.name
-                          a.comment-del(href="javascript:;" data-cid="#{item._id}") &nbsp;|&nbsp;删除
+                          a.comment-del(href="javascript:;" data-cid=`${item._id}`) &nbsp;|&nbsp;删除
                         if item.reply && item.reply.length > 0
                           each reply in item.reply
                             .media
@@ -83,8 +83,8 @@ block content
                                   | #{reply.to.name}
                                 p #{reply.content}
                                 span.createAt #{moment(reply.meta.createAt).format('MM-DD HH:mm')} &nbsp;&nbsp;&nbsp;&nbsp;
-                                a.comment(href="#comments" data-cid="#{item._id}" data-tid="#{reply.to._id}") 回复
+                                a.comment(href="#comments" data-cid=`${item._id}` data-tid=`${reply.to._id}`) 回复
                                 if user && reply.from.name === user.name
-                                  a.comment-del(href="javascript:;" data-cid="#{item._id}" data-did='#{reply._id}') &nbsp;|&nbsp;删除
+                                  a.comment-del(href="javascript:;" data-cid=`${item._id}` data-did=`${reply._id}`) &nbsp;|&nbsp;删除
                       hr
   script(src="/libs/scripts/js/movie/movie_detail.min.js")

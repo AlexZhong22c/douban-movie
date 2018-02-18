@@ -76,13 +76,13 @@
       if logo == 'movie'
         - var logoName = '电影'
         a(href="/")
-          img(src=`/libs/images/${logo}/${logo}Logo.png` alt="#{logo}Logo" style="width:115px;height:27px;")
+          img(src=`/libs/images/${logo}/${logo}Logo.png` alt=`${logo}Logo` style="width:115px;height:27px;")
       else
         - var logoName = '音乐'
         a(href="/musicIndex")
-          img(src="/libs/images/#{logo}/#{logo}Logo.png" alt="#{logo}Logo" style="width:115px;height:27px;")
+          img(src=`/libs/images/${logo}/${logo}Logo.png` alt=`${logo}Logo` style="width:115px;height:27px;")
     .nav-search
-      form(method='GET' action='/#{logo}/results')
+      form(method='GET' action=`/${logo}/results`)
         .input-group
           input.form-control(type='text' name='q' placeholder=`${logoName}搜索`)
           span.input-group-btn
@@ -91,10 +91,10 @@
   .nav-wrap
     if user && user.role > 10
       ul.clearfix
-        li: a(href="/admin/#{logo}/new" target="_blank") #{logoName}后台录入页
-        li: a(href="/admin/#{logo}/list" target="_blank") #{logoName}列表页
-        li: a(href="/admin/#{logo}/#{logo}Category/new" target="_blank") #{logoName}分类录入页
-        li: a(href="/admin/#{logo}/#{logo}Category/list" target="_blank") #{logoName}分类列表页
+        li: a(href=`/admin/${logo}/new` target="_blank") #{logoName}后台录入页
+        li: a(href=`/admin/${logo}/list` target="_blank") #{logoName}列表页
+        li: a(href=`/admin/${logo}/${logo}Category/new` target="_blank") #{logoName}分类录入页
+        li: a(href=`/admin/${logo}/${logo}Category/list` target="_blank") #{logoName}分类列表页
         if logo == 'movie'
           li: a(href="/admin/movie/city/new" target="_blank") 电影院录入页
           li: a(href="/admin/movie/city/list" target="_blank") 电影院列表页
