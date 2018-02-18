@@ -21,7 +21,7 @@ block content
             th 删除
         tbody
           each item in movies
-            tr(class="item-id-#{item._id}")
+            tr(class=`item-id-${item._id}`)
               if item.category
                 td #{item.category.name}
               else
@@ -35,8 +35,8 @@ block content
               td #{item.year}
               td #{moment(item.meta.updateAt).format('MM/DD/YYYY')}
               td #{item.pv}
-              td: a(target="_blank", href="/movie/#{item._id}") 查看
-              td: a(target="_blank", href="/admin/movie/update/#{item._id}") 修改
+              td: a(target="_blank", href=`/movie/${item._id}`) 查看
+              td: a(target="_blank", href=`/admin/movie/update/${item._id}`) 修改
               td
-                button.btn.btn-danger.movieDel(type="button", data-id="#{item._id}") 删除
+                button.btn.btn-danger.movieDel(type="button", data-id=`${item._id}`) 删除
   script(src="/libs/scripts/js/movie/movie_admin.min.js")

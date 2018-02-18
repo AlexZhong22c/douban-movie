@@ -18,7 +18,7 @@ block content
                   .panel.panel-default
                     .panel-heading.screen-header
                       h4#headerNow
-                        a(href="/movie/results?cat=#{cat._id}&p=0" target="_blank") #{cat.name}
+                        a(href=`/movie/results?cat=${cat._id}&p=0` target="_blank") #{cat.name}
                         span 即将上映
                         i »
                       .slide-tip
@@ -31,14 +31,14 @@ block content
                       if cat.movies && cat.movies.length > 0
                         each item in cat.movies
                           .thumbnail(style="width:127px;")
-                            a(href="/movie/#{item._id}" target="_blank")
+                            a(href=`/movie/${item._id}` target="_blank")
                               if item.poster.indexOf('http:') > -1
                                 img(src=`${item.poster}`, alt=`${item.title}`)
                               else
                                 img(src=`/upload/movie/${item.poster}`, alt=`${item.title}`)
                             .caption
                               h5 #{item.title}
-                              p: a.btn.btn-primary(href="/movie/#{item._id}" role="button" target="_blank") 观看预告片
+                              p: a.btn.btn-primary(href=`/movie/${item._id}` role="button" target="_blank") 观看预告片
             // 顶部轮播图下方广告标签节点
             .left-advertisement
               a(href="javascript:;")
@@ -185,7 +185,7 @@ block content
                               tr
                                 td.order=i++
                                 td
-                                  a(href="/movie/#{item._id}" target="_blank") #{item.title}
+                                  a(href=`/movie/${item._id}` target="_blank") #{item.title}
             // 本周口碑榜下方广告部分节点标签
             .right-advertisement
               a(href="javascript:;")
