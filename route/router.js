@@ -41,7 +41,7 @@ module.exports = function(app){
 	// 用户登出路由
 	app.get('/logout',User.logout);
 	// 验证码路由
-	// app.get('/captcha',User.captcha);
+	app.get('/captcha',User.captcha);
 	// 用户列表路由
 	app.route('/admin/user/list')
 			 .get(User.signinRequired,User.adminRequired,User.list)

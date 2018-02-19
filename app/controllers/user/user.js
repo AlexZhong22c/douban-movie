@@ -1,17 +1,18 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    User = mongoose.model('User'),
+    svgCaptcha = require('svg-captcha'),
+    captcha; // 声明验证码变量
 
 /* 用户注册及登录框中验证码生成器控制器 */
-// exports.captcha = function(req,res) {
-//   if(req.url === '/favicon.ico') {
-//     return res.end('');
-//   }
-//   var ary = ccap.get();
-//   captcha = ary[0];                               // 生成验证码
-//   res.end(captcha);
-// };
+exports.captcha = function(req,res) {
+  if(req.url === '/favicon.ico') {
+    return res.end('');
+  }
+  captcha = svgCaptcha.create().text                               // 生成验证码
+  res.end(captcha);
+};
 
 /* 用户注册控制器 */
 exports.signup = function(req,res) {
@@ -38,8 +39,8 @@ exports.signup = function(req,res) {
       return res.json({data:0});
     }else{
       // 验证码存在
-      if (true) {
-        if(false) {
+      if (captcha) {
+        if(_captcha.toLowerCase() !== captcha.toLowerCase()) {
           res.json({data:1});                // 输入的验证码不相等
         }else {
           // 数据库中没有该用户名，将其数据生成新的用户数据并保存至数据库
@@ -94,8 +95,8 @@ exports.signin = function(req,res) {
       // 密码匹配
       if(isMatch) {
         // 验证码存在
-        if (true) {
-          if(false) {
+        if (captcha) {
+          if(_captcha.toLowerCase() !== captcha.toLowerCase()) {
             res.json({data:2});                      // 输入的验证码不相等
           }else {
             req.session.user = user;                // 将当前登录用户名保存到session中
