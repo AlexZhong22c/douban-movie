@@ -12,7 +12,7 @@
 ## 启动mongodb服务
 
 - “假数据”已经备份到工程doubanDatabase文件夹，还原这些数据到数据库即可。
-  - 参考：`mongodump -h 127.0.0.1 -d douban -o "G:\xxxx\douban-movie\doubanDatabase"`
+  - 参考：`mongorestore -h 127.0.0.1 -d douban "G:\final\douban-React\doubanDatabase\douban"`
 - 启动数据库服务以备服务器调用。
   - 参考：`net start mongodb`
 
