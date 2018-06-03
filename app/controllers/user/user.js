@@ -26,6 +26,7 @@ exports.signup = function(req,res) {
     _user[name] = value;
   }
 
+  // 一次其实就只注册一个用户：
   var _name = _user.name || '',
       _captcha = _user.captcha || '';
 
